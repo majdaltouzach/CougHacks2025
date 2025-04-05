@@ -8,12 +8,13 @@ call venv\Scripts\activate
 pip install -r requirements.txt
 
 REM Start backend server
-start cmd /k "uvicorn app.main:app --reload"
+cd app
+start cmd /k "uvicorn main:app --reload"
 cd ..
 
 REM Frontend setup
 echo Installing frontend dependencies...
-cd frontend
+cd ..\frontend
 npm install
 
 REM Start frontend server

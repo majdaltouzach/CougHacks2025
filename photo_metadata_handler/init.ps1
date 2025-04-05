@@ -6,12 +6,14 @@ python -m venv venv
 pip install -r requirements.txt
 
 # Start backend server
-Start-Process powershell -ArgumentList 'uvicorn app.main:app --reload'
+cd app
+Start-Process powershell -ArgumentList 'uvicorn main:app --reload'
 Set-Location ..
 
 # Frontend setup
 Write-Host "Installing frontend dependencies..."
-Set-Location -Path "./frontend"
+# Set-Location -Path "../frontend"
+cd ../frontend
 npm install
 
 # Start frontend server
