@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-const MetadataPage = ({ children }: { children: ReactNode }) => <div></div>;
+const MetadataPage = () => <div></div>;
 
 export default MetadataPage;

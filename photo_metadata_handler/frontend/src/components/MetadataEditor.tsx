@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-const MetadataEditor = ({ children }: { children: ReactNode }) => <div></div>;
+const MetadataEditor = () => <div></div>;
 
 export default MetadataEditor;
