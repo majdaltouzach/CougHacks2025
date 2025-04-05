@@ -5,7 +5,7 @@ from PIL import Image, ExifTags
 import os
 import shutil
 
-from app.metadata_service import update_metadata, delete_metadata_tag
+from metadata_service import update_metadata, delete_metadata_tag, get_gps_info
 
 UPLOAD_DIR = "app/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -37,6 +37,12 @@ async def upload_image(file: UploadFile = File(...)):
         for tag_id, value in exif_data_raw.items():
             tag_name = ExifTags.TAGS.get(tag_id, tag_id)
             exif_data[tag_name] = str(value)
+        
+        # Extract GPS information
+        gps_info = get_gps_info(exif_data_raw)
+        if gps_info:
+            exif_data["GPSInfo"] = gps_info
+
         return {"filename": file.filename, "metadata": exif_data}
     except Exception as e:
         return JSONResponse(status_code=400, content={"error": str(e)})

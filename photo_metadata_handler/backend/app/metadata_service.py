@@ -43,3 +43,10 @@ def delete_metadata_tag(image_path: str, tag_name: str):
     else:
         raise ValueError(f"Tag '{tag_name}' not found in image metadata")
 
+def get_gps_info(exif_data):
+    gps_info = {}
+    if "GPSInfo" in exif_data:
+        for key in exif_data["GPSInfo"].keys():
+            decode = piexif.GPSIFD.get(key, key)
+            gps_info[decode] = exif_data["GPSInfo"][key]
+    return gps_info
