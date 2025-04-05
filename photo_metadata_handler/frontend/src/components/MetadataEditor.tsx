@@ -38,22 +38,24 @@ const MetadataEditor = () => {
 
   return (
     <div className="metadata-editor-container">
-      <div className="image-container">
-        <h3 className="">Preview</h3>
-        <img src={imageUrl} alt="Uploaded" className="" />
-      </div>
-      <ul>
+      <h3>Preview</h3>
+      <img src={imageUrl} alt="Uploaded" className="preview-image" />
+
+      <ul className="metadata-list">
         {Object.entries(metadata).map(([k, v]) => (
-          <li key={k} className="flex justify-between control-buttons">
+          <li key={k} className="metadata-item">
             <span>
               {k}: {v}
             </span>
-            <button onClick={() => handleDelete(k)}>Delete</button>
+            <button onClick={() => handleDelete(k)} className="button-danger">
+              Delete
+            </button>
           </li>
         ))}
       </ul>
-      <div className="mt-4">
-        <button onClick={handleAdd} className="button first-button">
+
+      <div className="metadata-actions">
+        <button onClick={handleAdd} className="button">
           Add Tag-Value
         </button>
         <button onClick={handleEraseAll} className="button">
