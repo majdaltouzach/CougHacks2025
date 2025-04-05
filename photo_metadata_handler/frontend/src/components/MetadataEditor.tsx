@@ -55,7 +55,7 @@ const MetadataEditor = () => {
       </ul>
 
       <div className="metadata-actions">
-        <button onClick={handleAdd} className="button">
+        <button onClick={handleAdd} className="button no-margin-button">
           Add Tag-Value
         </button>
         <button onClick={handleEraseAll} className="button">
