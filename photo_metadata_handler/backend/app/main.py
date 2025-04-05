@@ -6,7 +6,7 @@ import os
 import shutil
 
 from metadata_service import MetadataService
-	
+
 # Directory to store uploaded images
 UPLOAD_DIR = "app/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -42,7 +42,7 @@ async def upload_image(file: UploadFile = File(...)):
         for tag_id, value in exif_data_raw.items():
             tag_name = ExifTags.TAGS.get(tag_id, tag_id)
             exif_data[tag_name] = str(value)
-        
+
         gps_info = metadata_service.get_gps_info(exif_data_raw)
         if gps_info:
             exif_data["GPSInfo"] = gps_info
@@ -78,4 +78,3 @@ async def update_metadata_api(request: Request):
 async def get_image(filename: str):
     # Endpoint to retrieve an image by filename
     return FileResponse(os.path.join(UPLOAD_DIR, filename))
-
