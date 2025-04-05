@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UploadForm = () => {
+const UploadPage = () => {
   const [file, setFile] = useState<File | null>(null);
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const UploadForm = () => {
     const res = await axios.post("http://localhost:8000/upload/", formData);
     localStorage.setItem("metadata", JSON.stringify(res.data.metadata));
     localStorage.setItem("filename", res.data.filename);
-    navigate("/metadata");
+    await navigate("/metadata");
   };
 
   return (
@@ -31,4 +31,4 @@ const UploadForm = () => {
   );
 };
 
-export default UploadForm;
+export default UploadPage;
