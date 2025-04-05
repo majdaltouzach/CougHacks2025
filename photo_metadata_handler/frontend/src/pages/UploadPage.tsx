@@ -1,9 +1,8 @@
 //Denny's part of the project
-import './App.css';
 import Layout from '../components/Layout';
 import UploadForm from '../components/UploadForm';
 
 function UploadPage(){
-    return(1);
+    return(<p>Hello World</p>);
 }
 export default UploadPage;
