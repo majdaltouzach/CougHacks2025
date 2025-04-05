@@ -61,4 +61,4 @@ npm run dev
 ```
 
 ##  UML Class Diagram
-[!](diagrams/diagram.png)
+![UML Diagram](https://raw.githubusercontent.com/majdaltouzach/CougHacks2025/master/diagrams/diagram-uml.png)
