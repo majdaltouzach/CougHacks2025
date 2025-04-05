@@ -4,6 +4,7 @@ from piexif.helper import UserComment
 from PIL import Image
 import os
 import json
+import copy
 
 class MetadataService:
     def __init__(self):
@@ -56,6 +57,17 @@ class MetadataService:
             raise ValueError(f"Tag '{tag_name}' not found in image metadata")
         exif_bytes = piexif.dump(exif_dict)
         piexif.insert(exif_bytes, image_path)
+
+    def delete_everything(self, image_path: str):
+        exif_dict = piexif.load(image_path)
+        exif_dict_ref = copy.deepcopy(exif_dict)
+        for ifd_name in exif_dict_ref:
+            if ifd_name == "thumbnail":
+                continue
+            for tag_id in exif_dict_ref[ifd_name]:
+                del exif_dict[ifd_name][tag_id]
+        exif_bytes = piexif.dump(exif_dict)
+        piexif.insert(exif_bytes, image_path)
             
     def get_exif_data(self, path: str):
         exif_data = piexif.load(path)
@@ -67,3 +79,8 @@ class MetadataService:
             tag_name = piexif.GPSIFD.get(tag_id, tag_id)
             gps_info[tag_name] = value
         return gps_info if gps_info else None
+    
+service = MetadataService()
+print(service.get_exif_data("PXL_20211004_072757661.jpg"))
+service.delete_everything("PXL_20211004_072757661.jpg")
+print(service.get_exif_data("PXL_20211004_072757661.jpg"))
