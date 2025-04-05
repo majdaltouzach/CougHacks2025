@@ -22,7 +22,7 @@ const UploadForm = () => {
   
     return (
       <div className = "uploadContainer">
-        <h1>{askInput}</h1>
+        <h1> { askInput } </h1>
         <input
           type="file"
           accept="image/*"

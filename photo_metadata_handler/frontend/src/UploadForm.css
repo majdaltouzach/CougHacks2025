@@ -1,22 +1,19 @@
 /* UploadForm.module.css */
-.uploadContainer {
+.uploadContainer{
+    position: fixed;
+
+    height: 80vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-  }
-  
-  .uploadContainer input[type="file"] {
+}
+.uploadContainer input[type="file"] {
     cursor: pointer;
-  }
+}
   
-  .uploadContainer button {
+.uploadContainer button {
     padding: 0.5rem 1rem;
     background-color: #007bff;
     border: none;
@@ -24,9 +21,9 @@
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
   
-  .uploadContainer button:hover {
+.uploadContainer button:hover {
     background-color: #0056b3;
-  }
+}
   
