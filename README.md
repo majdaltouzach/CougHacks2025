@@ -4,12 +4,12 @@ A privacy-focused photo-sharing web platform developed during CougHacks 2025. Th
 
 ## Team Fotography
 
-- **Toufic Majdalani** – *Project Leader & Backend Software Engineer*
-- **Donovan Burger** – *Backend Software Engineer*
-- **Yakup Athanov** – *Frontend Software Engineer & Web Designer*
-- **Denny Huang** – *Frontend Software Engineer*
+- **Toufic Majdalani** – _Project Leader & Backend Software Engineer_
+- **Donovan Burger** – _Backend Software Engineer_
+- **Yakup Athanov** – _Frontend Software Engineer & Web Designer_
+- **Denny Huang** – _Frontend Software Engineer_
 
-##  Project Structure
+## Project Structure
 
 ```
 WSUFotography/
@@ -26,21 +26,21 @@ WSUFotography/
      tsconfig.json
 ```
 
-##  Tech Stack
+## Tech Stack
 
 - **Frontend:** React, TypeScript, Tailwind CSS
 - **Backend:** FastAPI (Python), Pillow (PIL)
 - **Communication:** FastAPI POST endpoints
 - **Extras:** EXIF metadata extraction
 
-##  Features
+## Features
 
 - Upload images from UI
 - Extract and display EXIF metadata (camera, lens, date, GPS, etc.)
 - Minimalist UI for privacy-first photo sharing
 - Modular, component-based frontend architecture
 
-##  Getting Started
+## Getting Started
 
 ### Backend
 
@@ -49,7 +49,8 @@ cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+cd .\\app
+uvicorn main:app --reload
 ```
 
 ### Frontend
@@ -60,5 +61,6 @@ npm install
 npm run dev
 ```
 
-##  UML Class Diagram
+## UML Class Diagram
+
 ![UML Diagram](https://raw.githubusercontent.com/majdaltouzach/CougHacks2025/master/diagrams/diagram-uml.png)
