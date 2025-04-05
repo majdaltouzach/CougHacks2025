@@ -6,3 +6,4 @@ import io
 
 @app.post("/upload-image/")
 async def upload_image(file: UploadFile = File(...)):
+    return 0
