@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./UploadForm.css";
+import { uploadImage } from "../api";
 
 const UploadForm = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -10,11 +11,7 @@ const UploadForm = () => {
   const askInput = "Upload an Image";
   const handleUpload = async () => {
     if (!file) return;
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const res = await axios.post("http://localhost:8000/upload/", formData);
+    const res = await uploadImage(file);
     localStorage.setItem("metadata", JSON.stringify(res.data.metadata));
     localStorage.setItem("filename", res.data.filename);
     navigate("/metadata");

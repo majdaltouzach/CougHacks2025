@@ -1,0 +1,13 @@
+.metadata-editor-container {
+    position: fixed;
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-left: 1rem;
+}
