@@ -22,7 +22,13 @@ const UploadForm = () => {
   
     return (
       <div className = "uploadContainer">
-        <h1> { askInput } </h1>
+        
+        <img
+          src="/stockImgIcon.png"
+          alt="logo192.png"
+          className="uploadImage"
+        />
+        <h1 className="header"> { askInput } </h1>
         <input
           type="file"
           accept="image/*"
