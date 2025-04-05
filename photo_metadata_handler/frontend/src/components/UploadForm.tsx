@@ -2,10 +2,12 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import '../UploadForm.css'
+
 const UploadForm = () => {
     const [file, setFile] = useState<File | null>(null);
     const navigate = useNavigate();
-  
+    const askInput = "Upload an Image";
     const handleUpload = async () => {
       if (!file) return;
   
@@ -19,7 +21,8 @@ const UploadForm = () => {
     };
   
     return (
-      <div>
+      <div className = "uploadContainer">
+        <h1>{askInput}</h1>
         <input
           type="file"
           accept="image/*"
