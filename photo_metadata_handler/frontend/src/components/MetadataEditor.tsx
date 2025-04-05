@@ -53,7 +53,7 @@ const MetadataEditor = () => {
         ))}
       </ul>
       <div className="mt-4">
-        <button onClick={handleAdd} className="button no-margin-button">
+        <button onClick={handleAdd} className="button first-button">
           Add Tag-Value
         </button>
         <button onClick={handleEraseAll} className="button">

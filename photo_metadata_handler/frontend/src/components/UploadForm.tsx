@@ -26,7 +26,7 @@ const UploadForm = () => {
         accept="image/*"
         onChange={(e) => setFile(e.target.files?.[0] || null)}
       />
-      <button onClick={handleUpload} className="button no-margin-button">
+      <button onClick={handleUpload} className="button first-button">
         Upload
       </button>
     </div>
