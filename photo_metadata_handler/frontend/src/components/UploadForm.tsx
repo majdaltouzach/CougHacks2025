@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 const UploadForm = () => {
     const [file, setFile] = useState<File | null>(null);
     const navigate = useNavigate();
