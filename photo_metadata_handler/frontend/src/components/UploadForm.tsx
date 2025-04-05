@@ -1,12 +1,17 @@
+//holds the upload functions as well as the text that SAYS to upload a a file.
 const UploadForm = () => {
-    const header = "WSUFotograph";
-    return (
-      <div>
-        {/* your UploadForm JSX */
-            <h1>header</h1>
-        }
-      </div>
-    );
+    const header = "Upload an image:";
+    
+    const onClickEvent = () =>{
+        alert("Clicking works!")
+    }
+
+    return(
+        <div>
+            <h1>{header}</h1>
+            <button onClick={onClickEvent}>Upload Image</button>
+        </div>
+    )
   };
   
   export default UploadForm;
