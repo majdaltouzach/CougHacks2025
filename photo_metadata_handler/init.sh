@@ -9,12 +9,13 @@ pip install -r requirements.txt
 
 # Start backend server
 echo "Starting backend server..."
-uvicorn app.main:app --reload &
+cd app
+uvicorn main:app --reload &
 cd ..
 
 # Frontend setup
 echo "Installing frontend dependencies..."
-cd frontend || exit
+cd ../frontend || exit
 npm install
 
 # Start frontend server
