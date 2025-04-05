@@ -3,6 +3,7 @@ from piexif import ImageIFD, ExifIFD, GPSIFD
 from piexif.helper import UserComment
 from PIL import Image
 import os
+import json
 
 # Combine all known tag mappings from piexif
 ALL_TAGS = {}
@@ -18,14 +19,20 @@ def resolve_tag(tag_name: str):
     return result  # (ifd, tag_id)
 
 def update_metadata(image_path: str, tag_name: str, new_value: str):
+    # Encode string value to bytes
+    encoded_value = new_value.encode("utf-8")
+    
     exif_dict = piexif.load(image_path)
     ifd, tag_id = resolve_tag(tag_name)
 
-    # Encode string value to bytes
-    encoded_value = new_value.encode("utf-8")
-
-    # Assign new tag value
-    exif_dict[ifd][tag_id] = encoded_value
+    # ALL_TAGS is kinda broken because multiple IFDs (Image, 0th, 1st, etc.), can contain the same tag
+    # But it parses with the assumption that each tag name will only exist in one IFD
+    # So we only use ALL_TAGS to look up the tag_id for a given tag name, which doesn't change between IFDS.
+    for ifd_name in exif_dict:
+        if ifd_name == "thumbnail":
+            continue
+        if tag_id in exif_dict[ifd_name]:
+            exif_dict[ifd_name][tag_id] = encoded_value
 
     # Dump & reinsert
     exif_bytes = piexif.dump(exif_dict)
@@ -35,9 +42,20 @@ def delete_metadata_tag(image_path: str, tag_name: str):
     exif_dict = piexif.load(image_path)
     ifd, tag_id = resolve_tag(tag_name)
 
-    if tag_id in exif_dict[ifd]:
-        del exif_dict[ifd][tag_id]
-        exif_bytes = piexif.dump(exif_dict)
-        piexif.insert(exif_bytes, image_path)
-    else:
+    deleted = False
+    # same thing here
+    for ifd_name in exif_dict:
+        if ifd_name == "thumbnail":
+            continue
+        if tag_id in exif_dict[ifd_name]:
+            del exif_dict[ifd_name][tag_id]
+            deleted = True
+    if not deleted:
         raise ValueError(f"Tag '{tag_name}' not found in image metadata")
+    exif_bytes = piexif.dump(exif_dict)
+    piexif.insert(exif_bytes, image_path)
+        
+
+def get_exif_data(path: str):
+    exif_data = piexif.load(path)
+    return exif_data
