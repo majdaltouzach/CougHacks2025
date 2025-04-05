@@ -1,0 +1,24 @@
+/* Layout.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #252525;
+    color: #bcbcbc;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-left: 1rem;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.first-button {
+    margin-left: 0rem;
+}
