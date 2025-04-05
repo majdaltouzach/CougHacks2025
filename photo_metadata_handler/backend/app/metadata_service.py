@@ -1,5 +1,6 @@
 import piexif
-from piexif import ImageIFD, ExifIFD, GPSIFD
+# Remove the unnecessary imports
+# from piexif import ImageIFD, ExifIFD, GPSIFD, InteroperabilityIFD, FirstIFD, ThumbnailIFD
 from piexif.helper import UserComment
 from PIL import Image
 import os
@@ -41,3 +42,4 @@ def delete_metadata_tag(image_path: str, tag_name: str):
         piexif.insert(exif_bytes, image_path)
     else:
         raise ValueError(f"Tag '{tag_name}' not found in image metadata")
+
