@@ -14,11 +14,16 @@ body {
 }
 
 .button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
     margin-left: 1rem;
-    background-color: grey;
-    border-radius: 10px;
 }
 
-.first-button {
+.no-margin-button {
     margin-left: 0rem;
 }
