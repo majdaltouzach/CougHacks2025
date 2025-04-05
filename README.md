@@ -61,43 +61,4 @@ npm run dev
 ```
 
 ##  UML Class Diagram
-
-```plantuml
-@startuml
-skinparam classAttributeIconSize 0
-
-package "Backend (FastAPI)" {
-  class Main {
-    +app: FastAPI
-    +include_routes()
-  }
-
-  class MetadataService {
-    +extract_metadata(image: File) : Dict
-  }
-
-  Main --> MetadataService : uses
-}
-
-package "Frontend (React)" {
-  class UploadForm {
-    +handleFileUpload(file)
-    +submitToBackend()
-  }
-
-  class MetadataViewer {
-    +display(metadata)
-  }
-
-  class App {
-    +main UI container
-  }
-
-  UploadForm --> MetadataViewer : passes metadata
-  App --> UploadForm
-  App --> MetadataViewer
-}
-
-Frontend --> Backend : FastAPI POST /extract
-@enduml
-```
+[!](diagrams/diagram.png)
