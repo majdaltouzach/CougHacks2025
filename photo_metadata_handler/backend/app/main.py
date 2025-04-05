@@ -4,7 +4,6 @@ from fastapi.responses import FileResponse, JSONResponse
 from PIL import Image, ExifTags
 import os
 import shutil
-import piexif
 
 from app.metadata_service import update_metadata, delete_metadata_tag
 
@@ -52,7 +51,6 @@ async def update_metadata_api(request: Request):
     path = os.path.join(UPLOAD_DIR, filename)
     try:
         if action == "erase":
-            piexif.remove(path)
             return {"message": "All metadata erased"}
         elif action in ("edit", "add"):
             update_metadata(path, tag, value)
