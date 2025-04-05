@@ -1,4 +1,4 @@
-# WSU Fotography 
+# WSUFotography 
 ## Team Fotography:
 - **Toufic Majdalani** - *Project Leader & Backend Software Engineer*
 - **Donovan Burger** - *Backend Software Engineer*
