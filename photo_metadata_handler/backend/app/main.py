@@ -6,7 +6,7 @@ import os
 import shutil
 
 from metadata_service import MetadataService
-
+	
 # Directory to store uploaded images
 UPLOAD_DIR = "app/uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
