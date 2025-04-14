@@ -6,7 +6,7 @@ A privacy-focused photo-sharing web platform developed during CougHacks 2025. Th
 
 - **Toufic Majdalani** – _Project Leader & Backend Software Engineer_
 - **Donovan Burger** – _Backend Software Engineer_
-- **Yakup Athanov** – _Frontend Software Engineer & Web Designer_
+- **Yakup Atahanov** – _Frontend Software Engineer & Web Designer_
 - **Denny Huang** – _Frontend Software Engineer_
 
 ## Project Structure
